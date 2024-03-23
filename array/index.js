@@ -5,7 +5,7 @@ var search = function(nums, target) {
     let left = 0
     let right = nums.length;
     while(left < right) {
-        debugger
+        console.count()
         const mid = Math.floor((right - left) / 2) + left;
         if(nums[mid] === target) {
             return mid;
@@ -13,9 +13,9 @@ var search = function(nums, target) {
         if(nums[mid] > target) {
             right = mid
         } else {
-            left = mid
+            left = mid + 1
         }
     }
 };
 
-search([0,5], 0)
+search([0,2,3,4,5,6,7,8], 3)
