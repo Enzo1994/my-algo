@@ -11,12 +11,13 @@ const merge = (arr, l, m, r) => {
     for( ;y <= r ; y++ ) {
         let sums = 0;
         x = l;
+
+        // 右边定死，左边while循环
         while(x <= m && arr[x] <= arr[y]) {
             sums += arr[x++];
         }
         res += sums
     }
-    // 右边定死，左边循环
 
     const help = [];
     let i = l;
