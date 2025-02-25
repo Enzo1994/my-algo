@@ -23,7 +23,7 @@ console.log(linkList)
 
 // 2. 链表的遍历
 const iterate = (head, cb) => {
-    for (let node = head; node.next != null; node = node.next) {
+    for (let node = head; node != null; node = node.next) {
         cb?.(node)
     }
 }
@@ -69,6 +69,25 @@ iterate(linkListAppend, (node) => console.log('appendLinkList', node.val))
 // 4. 删除链表数据
 //   a. 从头
 const linkListDeleteStart = JSON.parse(JSON.stringify(linkList))
+const newHead = linkListDeleteStart.next;
+iterate(newHead, (node) => console.log('linkListDeleteStart', node.val))
+
+
 //   b. 从中
+const linkListDeleteMiddle = JSON.parse(JSON.stringify(linkList))
+let listedListDeleteMiddleNode = linkListDeleteMiddle;
+for(let i = 1 ; i < pos - 1; i++) {
+    listedListDeleteMiddleNode = listedListDeleteMiddleNode.next;
+}
+const deleteNext = listedListDeleteMiddleNode.next.next;
+listedListDeleteMiddleNode.next = deleteNext;
+iterate(linkListDeleteMiddle, (node) => console.log('linkListDeleteMiddle', node.val))
 
 //   c. 从尾
+const linkListDeleteTrail = JSON.parse(JSON.stringify(linkList))
+let linkedListDeleteNode = linkListDeleteTrail
+while(linkedListDeleteNode.next.next != null) {
+    linkedListDeleteNode = linkedListDeleteNode.next;
+}
+linkedListDeleteNode.next = null;
+iterate(linkListDeleteTrail, (node) => console.log('linkListDeleteTrail', node.val))
