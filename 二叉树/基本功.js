@@ -43,25 +43,54 @@ const createBinaryTree = () => {
 
     const a = JSON.parse(JSON.stringify(arr))
     a.forEach(num => {
-        // tree.insert(num)
+        tree.insert(num)
     })
-    console.log(tree)
-}
 
-// createBinaryTree()
+    return tree
+}
 
 // 二叉搜索树
 
 // 遍历
 // 基础
 
-
+// 二叉树递归（深度优先）
+const traverseArray = []
 function traverse(node) {
     if (node == null) {
         return;
     }
-    
-    traverse(root.left);
-    traverse(root.right)
+    traverseArray.push(node.val)
+    traverse(node.left);
+    traverse(node.right)
 }
 
+const res = createBinaryTree();
+traverse(res.root)
+
+console.log(traverseArray)
+
+// 二叉树层序遍历（广度优先）
+const levelOrderTraverse = (root) => {
+    const queue = [root]
+    
+    let depth = 1;
+    while (queue.length) {
+        const size = queue.length 
+        for(let i = 0 ; i < size; i++) {
+            const currentNode = queue.shift();
+            
+            console.log("depth = " + depth + ", val = " + currentNode.val);
+
+            if (currentNode.left) {
+                queue.push(currentNode.left)
+            } 
+            if (currentNode.right) {
+                queue.push(currentNode.right)
+            }
+        }
+        depth++
+    }
+}
+
+// levelOrderTraverse(createBinaryTree().root)
