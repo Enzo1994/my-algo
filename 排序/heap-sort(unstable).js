@@ -6,7 +6,12 @@
 // 每轮堆顶排和最后一个节点互换，然后向下调整成大堆序，次数是 n-1
 
 const arr = [2,8,4,6,]
-const heapSort = () => {
+// const heapify
+const heapSort = (arr, ) => {
     // 建堆
     
+    const lastNonLeafNodeIdx = arr[arr.length - 1] - 1 >>1
+    for(let i = lastNonLeafNodeIdx ; i >= 0 ; i--) {
+        
+    }
 }
