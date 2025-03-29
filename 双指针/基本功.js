@@ -45,7 +45,8 @@ const nSum = (arr, sum, start, target) => {
         for (let i = 0 ; i < arr.length ; i++) {
             const sumList = nSum(arr, sum - 1, i, target);
             for(const item of sumList) {
-                
+                item.push(arr[i])
+                res.push(item)
             }
         }
     }

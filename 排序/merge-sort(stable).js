@@ -13,7 +13,6 @@ const merge = (arr, l, m, r) => {
     help.push(arr[i++])
   }
   
-  
   while (j <= r) {
     help.push(arr[j++])
   }
