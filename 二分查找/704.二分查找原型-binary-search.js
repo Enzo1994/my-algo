@@ -20,3 +20,23 @@ var search = function(nums, target) {
     }
     return -1
 };
+
+var search = function(nums, target) {
+    let l = 0;
+    // 区别在这
+    let r = nums.length;
+    
+    while(l < r) {
+        const mid = l + (r - l >> 1)
+        if(nums[mid] > target) {
+            // 区别在这
+            right = mid
+        } else if (nums[mid] < target) {
+            left = mid + 1
+        } else {
+            // 区别在这
+            return mid
+        }
+    }
+    return -1
+}
