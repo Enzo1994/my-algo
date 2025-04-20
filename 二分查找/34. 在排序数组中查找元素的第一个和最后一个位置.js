@@ -1,11 +1,7 @@
 // 需要一个 result 记录
 // 需要 result 的原因：暂存当前找到的位置，避免错过正确位置
+// 如果你省略了这个赋值，而是继续查找，即使找到了目标，也不会记录位置，最后可能就返回 -1 了。
 
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
 var searchRange = function(nums, target) {
     const findLeft = () => {
         let left = 0 ;
